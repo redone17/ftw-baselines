@@ -1,35 +1,35 @@
 trainer:
-  max_epochs: 3
-  log_every_n_steps: 1
+  max_epochs: 100
+  log_every_n_steps: 100
   accelerator: gpu
-  default_root_dir: logs/FTW-Dev
+  default_root_dir: logs/FTW-Release-Full-3-class
   devices:
     - 0
-  limit_train_batches: 16   # 16 batches × batch_size 4 = 64 samples/epoch
-  limit_val_batches: 8
   logger:
     class_path: lightning.pytorch.loggers.WandbLogger
     init_args:
       project: ftw-baselines
-      name: dev-run
+      name: ftw-pure-0420
       log_model: false
       tags:
-        - dev
+        - 3class
+        - austria
+        - pure-efnet7
   callbacks:
     - class_path: lightning.pytorch.callbacks.ModelCheckpoint
       init_args:
-        monitor: val_loss
-        mode: min
-        save_top_k: 0
+        monitor: val/iou_macro
+        mode: max
+        save_top_k: 1
         save_last: true
-        filename: "{epoch}-{val_loss:.2f}"
+        filename: "{epoch}-{val//iou:.3f}"
 model:
   class_path: ftw_tools.training.trainers.CustomSemanticSegmentationTask
   init_args:
-    class_weights: [0.05, 0.20, 0.75]
-    loss: "ce"
+    class_weights: [0.05, 0.2, 0.75]
+    loss: "logcoshdice"
     model: "unet"
-    backbone: "efficientnet-b3"
+    backbone: "efficientnet-b7"
     weights: true
     patch_weights: false
     in_channels: 8
@@ -42,8 +42,7 @@ data:
   class_path: ftw_tools.training.datamodules.FTWDataModule
   init_args:
     batch_size: 4
-    num_workers: 2
-    num_samples: 128       # limit training split to 128 samples
+    num_workers: 4
     random_shuffle: true
     train_countries:
       - austria
