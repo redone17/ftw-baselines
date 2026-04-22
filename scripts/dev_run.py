@@ -18,7 +18,7 @@ import numpy as np
 import torch
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SAMPLE_INPUT_TIF = REPO_ROOT / "tests" / "data-files" / "inference-img.tif"
+SAMPLE_INPUT_TIF = REPO_ROOT / "unit_tests" / "data-files" / "inference-img.tif"
 
 warnings.filterwarnings(
     "ignore",

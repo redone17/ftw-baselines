@@ -87,7 +87,7 @@ build.exclude = [
   "EXPERIMENTS.md",
   "notebooks/",
   "scripts/",
-  "tests/",
+  "unit_tests/",
   "uv.lock",
 ]
 
@@ -115,7 +115,7 @@ torchvision = { index = "pytorch-cu124" }
 [tool.pytest]
 ini_options.norecursedirs = [ ".ipynb_checkpoints", "data", "__pycache__" ]
 ini_options.pythonpath = [ "." ]
-ini_options.testpaths = [ "tests" ]
+ini_options.testpaths = [ "unit_tests" ]
 ini_options.tmp_path_retention_count = 1
 ini_options.tmp_path_retention_policy = "failed"
 ini_options.markers = [

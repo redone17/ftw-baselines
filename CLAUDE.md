@@ -46,19 +46,19 @@ uv pip install -e .
 
 ```bash
 # Run all non-integration tests with parallel execution (default via pytest.ini)
-uv run pytest tests/
+uv run pytest unit_tests/
 
 # Run specific test file
-uv run pytest tests/test_inference.py
+uv run pytest unit_tests/test_inference.py
 
 # Run a single test function
-uv run pytest tests/test_inference.py::test_function_name
+uv run pytest unit_tests/test_inference.py::test_function_name
 
 # Run only integration tests
-uv run pytest tests/ -m integration
+uv run pytest unit_tests/ -m integration
 
 # Run without parallelization (remove -n auto)
-uv run pytest tests/ -n 0
+uv run pytest unit_tests/ -n 0
 ```
 
 ### Linting and Code Quality
@@ -71,8 +71,8 @@ uv run pre-commit install
 uv run pre-commit run --all-files
 
 # Run ruff linter and formatter
-uv run ruff check ftw_tools tests --fix
-uv run ruff format ftw_tools tests
+uv run ruff check ftw_tools unit_tests --fix
+uv run ruff format ftw_tools unit_tests
 ```
 
 ### Running the CLI
@@ -184,7 +184,7 @@ Follow these steps to publish a new version:
 
 1. Update version in `pyproject.toml`
 2. Run `uv build` to create distribution
-3. Run full test suite: `uv run pytest tests/`
+3. Run full test suite: `uv run pytest unit_tests/`
 4. Run `uv publish` (requires credentials)
 5. Create GitHub release with `.ckpt` model files
 6. Verify installed package works: `pip install ftw-tools==<version>`

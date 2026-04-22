@@ -141,7 +141,7 @@ def test_inference_run(tmp_path: Path):
     runner = CliRunner()
 
     # Check required files are present
-    inf_input_path = "./tests/data-files/inference-img.tif"
+    inf_input_path = "./unit_tests/data-files/inference-img.tif"
     assert os.path.exists(inf_input_path)
 
     # Run inference
@@ -171,7 +171,7 @@ def test_inference_polygonize(tmp_path: Path):
     runner = CliRunner()
 
     # Check required files are present
-    mask = "./tests/data-files/mask.tif"
+    mask = "./unit_tests/data-files/mask.tif"
     assert os.path.exists(mask)
 
     # Polygonize the file
@@ -210,7 +210,7 @@ def test_instance_segmentation_inference(tmp_path: Path):
     runner = CliRunner()
 
     # Check required files are present
-    inf_input_path = "./tests/data-files/inference-img.tif"
+    inf_input_path = "./unit_tests/data-files/inference-img.tif"
     assert os.path.exists(inf_input_path)
 
     # Run inference

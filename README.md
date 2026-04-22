@@ -56,7 +56,13 @@ uv run scripts/dev_run.py >> outputs/dev/stdout.log
 
 This trains with `configs/dwei/dev.yaml`, then immediately runs `ftw model test` and writes results to `outputs/dev_metrics.csv`. WandB runs are tagged `dev` so they're easy to filter out from real runs.
 
-Adjust `configs/dwei/dev.yaml` (`limit_train_batches`, `limit_val_batches`, `max_epochs`) based on needs. 
+Adjust `configs/dwei/dev.yaml` (`limit_train_batches`, `limit_val_batches`, `max_epochs`) based on needs.
+
+Also run the unit tests to catch regressions before a full run:
+
+```bash
+uv run pytest unit_tests/
+```
 
 ### 3. Train
 

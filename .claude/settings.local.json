@@ -15,7 +15,8 @@
       "Bash(\"../.venv/Scripts/python.exe\" -c \"import json; nb=json.load\\(open\\('visualize_results.ipynb'\\)\\); print\\(json.dumps\\(nb.get\\('metadata', {}\\), indent=2\\)\\); print\\('nbformat:', nb.get\\('nbformat'\\), 'minor:', nb.get\\('nbformat_minor'\\)\\)\")",
       "Bash(\"../.venv/Scripts/python.exe\" _rewrite.py)",
       "Bash(.venv/Scripts/python.exe -c ' *)",
-      "Bash(.venv/Scripts/ftw.exe inference *)"
+      "Bash(.venv/Scripts/ftw.exe inference *)",
+      "Bash(git mv *)"
     ]
   }
 }

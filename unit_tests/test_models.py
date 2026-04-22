@@ -23,7 +23,7 @@ def test_delineate_anything():
     )
 
     # test model inference
-    with rasterio.open("./tests/data-files/inference-img.tif") as src:
+    with rasterio.open("./unit_tests/data-files/inference-img.tif") as src:
         x = torch.from_numpy(src.read().astype(np.float32)).unsqueeze(0)
 
     with torch.inference_mode():
