@@ -104,7 +104,7 @@ For development work with testing and linting tools:
 ```bash
 
 # Run tests
-uv run pytest tests/  # uses xdist via default -n auto
+uv run pytest unit_tests/  # uses xdist via default -n auto
 
 # Set up pre-commit hooks (only run this once)
 uv run pre-commit install

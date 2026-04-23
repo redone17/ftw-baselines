@@ -5,7 +5,7 @@ from click.testing import CliRunner
 
 from ftw_tools.cli import data_download, model_fit, model_list, model_show, model_test
 
-CONFIG_FILE = "tests/data-files/min_config.yaml"
+CONFIG_FILE = "unit_tests/data-files/min_config.yaml"
 
 
 @pytest.fixture(scope="session")

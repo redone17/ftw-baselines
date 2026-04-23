@@ -56,7 +56,13 @@ uv run scripts/dev_run.py >> outputs/dev/stdout.log
 
 This trains with `configs/dwei/dev.yaml`, then immediately runs `ftw model test` and writes results to `outputs/dev_metrics.csv`. WandB runs are tagged `dev` so they're easy to filter out from real runs.
 
-Adjust `configs/dwei/dev.yaml` (`limit_train_batches`, `limit_val_batches`, `max_epochs`) based on needs. 
+Adjust `configs/dwei/dev.yaml` (`limit_train_batches`, `limit_val_batches`, `max_epochs`) based on needs.
+
+Also run the unit tests to catch regressions before a full run:
+
+```bash
+uv run pytest unit_tests/
+```
 
 ### 3. Train
 
@@ -108,16 +114,16 @@ Outputs pixel-level IoU / precision / recall and object-level precision / recall
 
 ```bash
 ftw inference run \
-  --model logs/FTW-Release-Full-3-class/.../last.ckpt \
-  --input <path-to-sentinel2.tif> \
-  --output outputs/austria_pred.tif
+  <path-to-sentinel2.tif> \
+  -m logs/FTW-Release-Full-3-class/.../last.ckpt \
+  -o outputs/austria_pred.tif
 ```
 
 #### 4.3 Polygonize
 
 ```bash
 ftw inference polygonize outputs/austria_pred.tif \
-  --output outputs/austria_fields.parquet \
+  --out outputs/austria_fields.parquet \
   --simplify 15 --min_size 500
 ```
 
