@@ -114,16 +114,16 @@ Outputs pixel-level IoU / precision / recall and object-level precision / recall
 
 ```bash
 ftw inference run \
-  --model logs/FTW-Release-Full-3-class/.../last.ckpt \
-  --input <path-to-sentinel2.tif> \
-  --output outputs/austria_pred.tif
+  <path-to-sentinel2.tif> \
+  -m logs/FTW-Release-Full-3-class/.../last.ckpt \
+  -o outputs/austria_pred.tif
 ```
 
 #### 4.3 Polygonize
 
 ```bash
 ftw inference polygonize outputs/austria_pred.tif \
-  --output outputs/austria_fields.parquet \
+  --out outputs/austria_fields.parquet \
   --simplify 15 --min_size 500
 ```
 
