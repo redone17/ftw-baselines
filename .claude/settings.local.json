@@ -4,7 +4,7 @@
       "Read(//c/Users/redone-pc/.config/**)",
       "Read(//c/Users/redone-pc/AppData/Roaming/Claude/**)",
       "Read(//c/Users/redone-pc/AppData/Local/**)",
-      "Bash(python -m json.tool)",
+      "Bash(uv run python -m json.tool)",
       "Bash(cat ~/.claude/ide/*.json)",
       "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(k,'=',v\\) for k,v in d.items\\(\\) if 'terminal' in k.lower\\(\\) or 'shell' in k.lower\\(\\)]\")",
       "Bash(uv run *)",
@@ -16,7 +16,10 @@
       "Bash(\"../.venv/Scripts/python.exe\" _rewrite.py)",
       "Bash(.venv/Scripts/python.exe -c ' *)",
       "Bash(.venv/Scripts/ftw.exe inference *)",
-      "Bash(git mv *)"
+      "Bash(git mv *)",
+      "Bash(gdalinfo ./unit_tests/data-files/inference-img.tif)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   }
 }
